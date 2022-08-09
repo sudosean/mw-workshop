@@ -132,8 +132,13 @@ Note: All the VALIDATE_[LANGUAGE] variables behave in a very specific way:
 
 ## Step 8: Opening your Pull Request
 <a name="OpeningPR"></a>
+For this github action to run, it will need to go through a pr process. Open a pr and you should see the new "check" running at the bottom of the pr. Then, head to the next step to see the linter run in the worklfow!
+
+Note: we configured this job in step 3 to trigger the job `on` a pr and a merge. So after a merge it will run again
+
 ## Step 9: Watching jobs in Github UI
 <a name="WatchingJobs"></a>
+
 ## Step 10: Add Badge to repo
 <a name="badge"></a>
 ## Recap

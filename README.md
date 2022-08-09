@@ -68,6 +68,23 @@ Tell github how to start the Job in `lintCodeBase.yml` by defining the `on` bloc
 
 ## Step 4: Load Steps
 <a name="LoadSteps"></a>
+A Job is a collection of sequential Steps to run that should perform a discrete piece of work in the CICD pipeline (example, Lint, Build, Test, Deploy, etc.)
+
+Create a job using the `jobs` key in `lintCodeBase.yml` following the `on` event defined in step 3: 
+
+<img width="292" alt="Screen Shot 2022-08-09 at 2 26 00 PM" src="https://user-images.githubusercontent.com/7821732/183764445-546df892-6d3e-4b0c-8194-6d30db1c2de5.png">
+
+
+### Best Practices
+- Each Job should be related to a single discrete piece of work in the CICD pipeline; for example, in a Workflow called ‘pull-request-open-on-main’, there may be the following Jobs: 
+   - build-for-staging 
+   - deploy-to-staging 
+   - integration-tests 
+   - performance-tests 
+- For Job names use kebab-case
+  - job names need not be unique across all Workflows, but must be unique within the same Workflow
+
+ 
 ## Step 5: Checking out code
 <a name="Checking"></a>
 ## Step 6: Running Linter 

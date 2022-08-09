@@ -30,8 +30,16 @@ In this workshop we will utilize a tool called [super-linter](https://github.com
 
 ## Step 1: Workflow Yaml 
 <a name="WorkflowYaml"></a>
-A workflow is a configurable automated process made up of one or more Jobs; this is represented as a single YAML file and is triggered by one or more Git Events
+In your repository you should have a `.github/workflows`. In that directory, create `linter.yml`: `.github/workflows/linter.yml`
+<img width="264" alt="Screen Shot 2022-08-09 at 1 54 57 PM" src="https://user-images.githubusercontent.com/7821732/183759543-b43fe1e4-9ec8-4733-a76b-9c1af7a499cf.png">
 
+### Best Practices
+- A workflow is a configurable automated process made up of one or more Jobs; this is represented as a single YAML file and is triggered by one or more Git Events
+- Set the Workflow filename to the same as the Workflow name 
+- The first 3 lines within the Workflow file should be commented lines with
+   - A concise description outlining what the Workflow is running and when (trigger + branch)
+   - The Author or List of Collaborators for this Workflow
+   - The Current Version of the Workflow
 ## Step 2: Naming Job
 <a name="NamingJob"></a>
 ## Step 3: Starting Job

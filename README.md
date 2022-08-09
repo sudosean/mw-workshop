@@ -111,6 +111,25 @@ The second "step" in our `steps` section is to actually run the linter. Under `s
 
 ## Step 7: Adding Env variables
 <a name="AddingEnv"></a>
+
+Env vars can be scoped to the Workflow level, Job level and Step level. Because super linter comes with a myraid of programming languages, we want to set java to true at the `step` level. We also want to exclude generated files, files ignored by git and scope down linting to the `src` file. Super linter provides a number of env vars for this step so please check documentation for reference.
+
+Add the following env vars to the `env` block of the step 6:
+
+<img width="487" alt="Screen Shot 2022-08-09 at 3 15 42 PM" src="https://user-images.githubusercontent.com/7821732/183771404-9bad1d81-13cd-4ddb-b85a-68d553e63745.png">
+
+Note: All the VALIDATE_[LANGUAGE] variables behave in a very specific way:
+- If none of them are passed, then they all default to true.
+- If any one of the variables are set to true, we default to leaving any unset variable to false (only validate those languages).
+- If any one of the variables are set to false, we default to leaving any unset variable to true (only exclude those languages).
+- If there are VALIDATE_[LANGUAGE] variables set to both true and false. It will fail.
+
+### Best Practices
+- Again, Env vars can be scoped to the Workflow level, Job level and Step level
+- Use environment variables within the narrowest scope possible
+- Be aware that if you create new environment variables and append them to the $GITHUB_ENV variable then they will be available to all subsequent Steps within that same Job
+- For Environment Variables use SNAKE_CASE (All Caps)
+
 ## Step 8: Opening your Pull Request
 <a name="OpeningPR"></a>
 ## Step 9: Watching jobs in Github UI
@@ -119,3 +138,4 @@ The second "step" in our `steps` section is to actually run the linter. Under `s
 <a name="badge"></a>
 ## Recap
 <a name="Recap"></a>
+

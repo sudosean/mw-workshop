@@ -84,9 +84,20 @@ Create a job using the `jobs` key in `lintCodeBase.yml` following the `on` event
 - For Job names use kebab-case
   - job names need not be unique across all Workflows, but must be unique within the same Workflow
 
- 
 ## Step 5: Checking out code
 <a name="Checking"></a>
+In this next part, we will define the `steps` that belong to the `job`. Usually the first step is to checkout the code from the repo. A step is an individual task within a Job; this may be a Public Action, a Custom Action, or a Run Step
+
+`steps` is the next key down from `build` and is a list usually with the following keys (among others): `name`, `uses`, `with`
+
+In `lintCodeBase.yml` under `jobs -> steps` add the following to checkout the codebase:
+
+<img width="916" alt="Screen Shot 2022-08-09 at 2 45 36 PM" src="https://user-images.githubusercontent.com/7821732/183767363-c6fad692-b324-47ee-8758-7a22cb49f7cd.png">
+
+### Best Pracitces
+- For Step Names you can have spaces but keep it simple and avoid the use of non-alpha characters
+- For Step Ids use kebab-case
+
 ## Step 6: Running Linter 
 <a name="RunningLinter"></a>
 ## Step 7: Adding Env variables

@@ -30,6 +30,8 @@ In this workshop we will utilize a tool called [super-linter](https://github.com
 
 ## Step 1: Workflow Yaml 
 <a name="WorkflowYaml"></a>
+A workflow is a configurable automated process made up of one or more Jobs; this is represented as a single YAML file and is triggered by one or more Git Events
+
 ## Step 2: Naming Job
 <a name="NamingJob"></a>
 ## Step 3: Starting Job

@@ -100,6 +100,15 @@ In `lintCodeBase.yml` under `jobs -> steps` add the following to checkout the co
 
 ## Step 6: Running Linter 
 <a name="RunningLinter"></a>
+
+The second "step" in our `steps` section is to actually run the linter. Under `steps` in `lintCodeBase.yml` add a new list following the code checkout step as seen here:
+
+<img width="468" alt="Screen Shot 2022-08-09 at 2 48 53 PM" src="https://user-images.githubusercontent.com/7821732/183767873-9259f28c-2505-4bfc-8d9d-96251714a7e6.png">
+
+**NOTE**: **There is no need to set the GitHub Secret as it is automatically set by GitHub, it only needs to be passed to the action**. If you pass the Environment variable GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} in your workflow, then the GitHub Super-Linter will mark the status of each individual linter run in the Checks section of a pull request. Without this you will only see the overall status of the full run. 
+### Best Practices
+- Same as step 5
+
 ## Step 7: Adding Env variables
 <a name="AddingEnv"></a>
 ## Step 8: Opening your Pull Request

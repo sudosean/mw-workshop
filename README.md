@@ -16,24 +16,24 @@ In this workshop we will utilize a tool called [super-linter](https://github.com
 
 ## Table of Contents
 
-1. [Step 1: Workflow Yaml File](#Step 1: Workflow Yaml)
-2. [Step 2: Naming Job](#Step 2: Naming Job)
-3. [Step 3:  Starting Job](#Step 3: Starting Job)
-4. [Step 4:  Load steps](#Step 4: Load Steps)
-5. [Step 5: Checking out code](#Step 5: Checking out code)
-6. [Step 6: Running Linter](#Step 6: Running Linter)
-7. [Step 7: Adding Env variables)[#Step 7: Adding Env variables)
-8. [Step 8: Opening your Pull Request)(#Step 8: Opening your Pull Request)
-9. [Step 9: Watching jobs in Github UI](#Step 9: Watching jobs in Github UI)
+1. [Step 1: Workflow Yaml File](#Workflow Yaml)
+2. [Step 2: Naming Job](#Naming Job)
+3. [Step 3:  Starting Job](#Starting Job)
+4. [Step 4:  Load steps](#Load Steps)
+5. [Step 5: Checking out code](Checking out code)
+6. [Step 6: Running Linter](#Running Linter)
+7. [Step 7: Adding Env variables)[#Adding Env variables)
+8. [Step 8: Opening your Pull Request)(#Opening your Pull Request)
+9. [Step 9: Watching jobs in Github UI](#Watching jobs in Github UI)
 10. [Recap](#Recap) 
 
 
-## Step 1: Workflow Yaml
-## Step 2: Naming Job
-## Step 3: Starting Job
-## Step 4: Load Steps
-## Step 5: Checking out code
-## Step 6: Running Linter 
-## Step 7: Adding Env variables
-## Step 9: Watching jobs in Github UI
+## Workflow Yaml
+## Naming Job
+## Starting Job
+## Load Steps
+## Checking out code
+## Running Linter 
+## Adding Env variables
+## Watching jobs in Github UI
 ## Recap

@@ -57,6 +57,15 @@ Create the name of the job in `lintCodeBase.yml` by defining the `name:` key and
 
 ## Step 3: Starting Job
 <a name="StartingJob"></a>
+A Job is event based meaning it is triggered `on` some event. A Git event, such as ‘pull request opened', or ‘push’; this may or may not be further defined to one or more specific branches
+
+Tell github how to start the Job in `lintCodeBase.yml` by defining the `on` block which follows the `name` key
+
+<img width="575" alt="Screen Shot 2022-08-09 at 2 12 15 PM" src="https://user-images.githubusercontent.com/7821732/183762351-38736cc1-b843-4f11-803a-30d2c309a71f.png">
+
+### Best Practices
+- For each major Git Event (related to CICD, such as PR open and Push) and each branch (or set of branches as deemed appropriate) there should be exactly one Action Workflow
+
 ## Step 4: Load Steps
 <a name="LoadSteps"></a>
 ## Step 5: Checking out code

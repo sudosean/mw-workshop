@@ -144,3 +144,39 @@ Note: we configured this job in step 3 to trigger `on` a pr and a merge. So afte
 ## Recap
 <a name="Recap"></a>
 
+### Security Considerations
+<a name="Security"></a>
+
+#### Where does the Job actually run?
+
+GitHub Action jobs by default run on Virtual Machines managed by GitHub themselves. These are referred to as *GitHub-hosted Runners*.
+
+The runners are located within GitHub's own Microsoft Azure account and can access any resource that is public facing. For those resources that are not publicly accessible, due to security policies or the like, then there is the option to use a 'self-hosted' runner.  
+These are virtual machines that are built, hosted and maintained by your own company, and are generally located within the environment / infrastructure that they need to operate within.  
+
+For example, you may have a 'build & deliver' Job that updates a Kubernetes Cluster inside your own Data Centre.  
+Using a GitHub-hosted runner would require the networking team to open up the Kubernetes Cluster to the public Internet, something that would violate the company security policies.  
+So instead you would build a VM with the requisite software and tools, host this VM from within the Data Centre, and then using the Agent software (the software used by the runners to talk back to the GitHub Services), join the VM to the relevant repository that you would like to use that runner on.  
+If desired, you can instead register the VM at the Organisation level with GitHub Enterprise.
+
+Links of interest:
+
+- [Runner Images](https://github.com/actions/runner-images): this repository has the scripts that are used by GitHub to create their own runners, and with minimal effort you can use these scripts yourself to create your 'self-hosted' runner VMs
+- [GitHub-hosted Runners information](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners)
+
+#### Secrets inside the Workflow
+
+Just like you wouldn't hardcode sensitive information inside your application code, neither should you hardcode sensitive information inside your Workflows.  
+One solution is to use GitHub's inbuilt mechanism to securely inject secrets directly into your Workspaces.  
+You only need to create the Secret, either at the Organization level or at the Repository level, then reference the secret via an automatically created environment variable, which the Workflow will have access to.  
+This secret environment variable is masked in all logs produced but it is available to the Steps / Actions you choose to expose the Secret to, so you do need to be careful as to how you pass your secret on.  
+
+Using the GitHub Secret is a convenient way to inject Secrets into your workflow.  
+Another solution you can use is to access other Secret Services, such as Hashicorp's Vault service.  
+The Vault Service even has its own Action available in the Marketplace which minimizes the work required.
+
+Links of interest:
+
+- [GitHub Encrypted Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
+- [Vault Service](https://www.vaultproject.io/)
+- [Vault Action](https://github.com/hashicorp/vault-action)

@@ -139,9 +139,21 @@ Note: We configured this job in step 3 to trigger `on` a pr and a merge (of non 
 
 ## Step 9: Watching jobs in Github UI
 <a name="WatchingJobs"></a>
+There are a few ways to fiew the workflow running. Either on the pr, under the "Checks" section or you can click on the actions tab at the top of the repo and find your workflow running there
+
+Click the "Actions" tab at the top of the repo
+<img width="848" alt="Screen Shot 2022-08-10 at 2 09 21 PM" src="https://user-images.githubusercontent.com/7821732/184020581-4024fe06-1652-402a-80fa-66cd33a43cc5.png">
+
+Click the "lint code base" tab under "Workflows"
+<img width="285" alt="Screen Shot 2022-08-10 at 2 13 24 PM" src="https://user-images.githubusercontent.com/7821732/184021267-ba5273be-db9c-4d62-95d4-655c0f0ee229.png">
+
+Click into the workflow at the top
 
 ## Step 10: Add Badge to repo
 <a name="badge"></a>
+Click Actions at the top, then pick the workflow you want to add a badge for. Click on the three dots to the right of the search bar at the top and click "create status badge"
+<img width="983" alt="Screen Shot 2022-08-10 at 2 16 00 PM" src="https://user-images.githubusercontent.com/7821732/184021684-90188c7c-4b71-442e-a937-61acba2b0279.png">
+
 ## Recap
 <a name="Recap"></a>
 ## Security Considerations

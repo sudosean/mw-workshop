@@ -27,7 +27,7 @@ In this workshop we will utilize a tool called [super-linter](https://github.com
 9. [Step 9: Watching jobs in Github UI](#WatchingJobs)
 10. [Step 10: Add Badge to repo](#badge)
 11. [Recap](#Recap) 
-12 [Secuirty Considerations](#Security)
+12. [Secuirty Considerations](#Security)
 
 
 ## Step 1: Workflow Yaml 

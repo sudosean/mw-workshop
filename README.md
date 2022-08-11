@@ -33,7 +33,7 @@ In this workshop we will utilize a tool called [super-linter](https://github.com
 
 ## Step 1: Workflow Yaml 
 <a name="WorkflowYaml"></a>
-In your repository you should have a `.github/workflows`. In that directory, create `lintCodeBase.yml`: `.github/workflows/lintCodeBase.yml`
+In your repository you should have a `.github/workflows`. In that directory, create `lint-code-base.yml`: `.github/workflows/lint-code-base.yml`
 
 <img width="264" alt="Screen Shot 2022-08-09 at 1 54 57 PM" src="https://user-images.githubusercontent.com/7821732/183759543-b43fe1e4-9ec8-4733-a76b-9c1af7a499cf.png">
 

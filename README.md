@@ -178,6 +178,8 @@ Choose the branch you want to display the badge for (usually main or master) and
 
 Copy the Markdown provided and paste it at the top of your readme
 
+For more info on badges in repos please see [this documentation](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)
+
 ## Recap
 <a name="Recap"></a>
 

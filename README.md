@@ -18,14 +18,14 @@ In this workshop we will utilize a tool called [super-linter](https://github.com
 ## Table of Contents
 
 1. [Step 1: Workflow Yaml File](#WorkflowYaml)
-2. [Step 2: Naming Job](#NamingJob)
+2. [Step 2: Naming Workflow](#NamingWorkflow)
 3. [Step 3:  Starting Job](#StartingJob)
-4. [Step 4:  Load steps](#LoadSteps)
+4. [Step 4:  Load Steps](#LoadSteps)
 5. [Step 5: Checking out code](#Checking)
 6. [Step 6: Running Linter](#RunningLinter)
 7. [Step 7: Adding Env variables](#AddingEnv)
 8. [Step 8: Opening your Pull Request](#OpeningPR)
-9. [Step 9: Watching jobs in Github UI](#WatchingJobs)
+9. [Step 9: Watching Jobs in Github UI](#WatchingJobs)
 10. [Step 10: Add Badge to repo](#badge)
 11. [Recap](#Recap) 
 12. [Secuirty Considerations](#Security)
@@ -46,10 +46,11 @@ In your repository you should have a `.github/workflows`. In that directory, cre
    - The Current Version of the Workflow
   <img width="668" alt="Screen Shot 2022-08-09 at 2 04 41 PM" src="https://user-images.githubusercontent.com/7821732/183761174-79da2d33-79aa-4347-b82d-33fecde7b03f.png">
 
-## Step 2: Naming Job
-<a name="NamingJob"></a>
-Create the name of the job in `lintCodeBase.yml` by defining the `name:` key and set it to `Lint Code Base`: `name: Lint Code Base`
-<img width="671" alt="Screen Shot 2022-08-09 at 2 06 47 PM" src="https://user-images.githubusercontent.com/7821732/183761514-b8d308c6-a69e-49ce-931a-3824362858bd.png">
+## Step 2: Naming Workflow
+<a name="NamingWorkflow"></a>
+Create the name of the Workflow in `lint-code-base.yml` by defining the `name:` key and set it to `lint-code-base`: `name: lint-code-base`
+<img width="644" alt="Screen Shot 2022-08-11 at 12 16 40 PM" src="https://user-images.githubusercontent.com/7821732/184221309-33eff08c-5673-4398-8463-fe03805228fe.png">
+
 
 ### Best Practices
 - For Workflow name use kebab-case
@@ -61,18 +62,18 @@ Create the name of the job in `lintCodeBase.yml` by defining the `name:` key and
 <a name="StartingJob"></a>
 A Job is event based meaning it is triggered `on` some event. A Git event, such as ‘pull request opened', or ‘push’; this may or may not be further defined to one or more specific branches
 
-Tell github how to start the Job in `lintCodeBase.yml` by defining the `on` block which follows the `name` key
+Tell github how to start the Job in `lint-code-base.yml` by defining the `on` block which follows the `name` key
 
 <img width="575" alt="Screen Shot 2022-08-09 at 2 12 15 PM" src="https://user-images.githubusercontent.com/7821732/183762351-38736cc1-b843-4f11-803a-30d2c309a71f.png">
 
 ### Best Practices
-- For each major Git Event (related to CICD, such as PR open and Push) and each branch (or set of branches as deemed appropriate) there should be exactly one Action Workflow
+- There should be only one Action Workflow per Git Event + Branch type, there are no issues with having multiple branch / multiple Git events in a single workflow,
 
 ## Step 4: Load Steps
 <a name="LoadSteps"></a>
 A Job is a collection of sequential Steps to run that should perform a discrete piece of work in the CICD pipeline (example, Lint, Build, Test, Deploy, etc.)
 
-Create a job using the `jobs` key in `lintCodeBase.yml` following the `on` event defined in step 3: 
+Create a Job using the `Jobs` key in `lint-code-base.yml` following the `on` event defined in step 3: 
 
 <img width="292" alt="Screen Shot 2022-08-09 at 2 26 00 PM" src="https://user-images.githubusercontent.com/7821732/183764445-546df892-6d3e-4b0c-8194-6d30db1c2de5.png">
 
@@ -84,17 +85,19 @@ Create a job using the `jobs` key in `lintCodeBase.yml` following the `on` event
    - integration-tests 
    - performance-tests 
 - For Job names use kebab-case
-  - job names need not be unique across all Workflows, but must be unique within the same Workflow
+  - Job names need not be unique across all Workflows, but must be unique within the same Workflow
 
 ## Step 5: Checking out code
 <a name="Checking"></a>
-In this next part, we will define the `steps` that belong to the `job`. Usually the first step is to checkout the code from the repo. A step is an individual task within a Job; this may be a Public Action, a Custom Action, or a Run Step
+In this next part, we will define the `Steps` that belong to the `Job`. Usually the first step is to checkout the code from the repo. A step is an individual task within a Job; this may be a Public Action, a Custom Action, or a Run Step
 
-`steps` is the next key down from `build` and is a list usually with the following keys (among others): `name`, `uses`, `with`
+`Steps` is the next key down from `build` and is a list usually with the following keys (among others): `name`, `uses`, `with`
 
-In `lintCodeBase.yml` under `jobs -> steps` add the following to checkout the codebase:
+In `lint-code-base.yml` under `Jobs -> Steps` add the following to checkout the codebase:
 
 <img width="916" alt="Screen Shot 2022-08-09 at 2 45 36 PM" src="https://user-images.githubusercontent.com/7821732/183767363-c6fad692-b324-47ee-8758-7a22cb49f7cd.png">
+
+NOTE: step ids are used to reference the step in contexts if needed
 
 ### Best Pracitces
 - For Step Names you can have spaces but keep it simple and avoid the use of non-alpha characters
@@ -103,7 +106,7 @@ In `lintCodeBase.yml` under `jobs -> steps` add the following to checkout the co
 ## Step 6: Running Linter 
 <a name="RunningLinter"></a>
 
-The second "step" in our `steps` section is to actually run the linter. Under `steps` in `lintCodeBase.yml` add a new list following the code checkout step as seen here:
+The second "Step" in our `Steps` section is to actually run the linter. Under `Steps` in `lint-code-base.yml` add a new list following the code checkout step as seen here:
 
 <img width="468" alt="Screen Shot 2022-08-09 at 2 48 53 PM" src="https://user-images.githubusercontent.com/7821732/183767873-9259f28c-2505-4bfc-8d9d-96251714a7e6.png">
 
@@ -169,7 +172,7 @@ Copy the Markdown provided and paste it at the top of your readme
 
 #### Where does the Job actually run?
 
-GitHub Action jobs by default run on Virtual Machines managed by GitHub themselves. These are referred to as *GitHub-hosted Runners*.
+GitHub Action Jobs by default run on Virtual Machines managed by GitHub themselves. These are referred to as *GitHub-hosted Runners*.
 
 The runners are located within GitHub's own Microsoft Azure account and can access any resource that is public facing. For those resources that are not publicly accessible, due to security policies or the like, then there is the option to use a 'self-hosted' runner.  
 These are virtual machines that are built, hosted and maintained by your own company, and are generally located within the environment / infrastructure that they need to operate within.  

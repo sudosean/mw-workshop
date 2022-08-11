@@ -15,6 +15,19 @@ In this workshop we will utilize a tool called [super-linter](https://github.com
 
  - Fork [Closet Service](https://github.com/MensWearhouse/closet-service) 
 
+## Introduction
+GitHub Actions gives developers the ability to automate their workflows across issues, pull requests, and more—plus native CI/CD functionality.
+
+GitHub Actions is a CI/CD tool for the GitHub flow. You can use it to
+integrate and deploy code changes to a third-party cloud application
+platform as well as test, track, and manage code changes. GitHub Actions
+also supports third-party CI/CD tools, the container platform Docker, and
+other automation platforms.
+
+**Why having a GitHub-native CI/CD tool is helpful**: The most basic
+answer is simplicity—if you’re already hosting a project on GitHub, you
+have a built-in CI/CD tool that works right alongside your code.
+
 ## Table of Contents
 
 1. [Step 1: Workflow Yaml File](#WorkflowYaml)
@@ -167,6 +180,11 @@ Copy the Markdown provided and paste it at the top of your readme
 
 ## Recap
 <a name="Recap"></a>
+
+In this workshop we created a github action using super linter. We created the Worflow, defined the Job and Steps to do durning that Job. You can see that in a few lines of yaml you can begin to build an entire CI process for your project. You can even do deployments right from GitHub Actions and there is an entire [Marketplace](https://github.com/marketplace?type=actions) with predefined actions all ready to use for your project! 
+
+Keep an eye on the best practices documentation found [here](https://wiki.tailoredbrands.com/pages/viewpage.action?spaceKey=WW&title=Github+Actions+Best+Practices)
+
 ## Security Considerations
 <a name="Security"></a>
 

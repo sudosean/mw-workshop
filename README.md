@@ -62,6 +62,7 @@ In your repository you should have a `.github/workflows`. In that directory, cre
 ## Step 2: Naming Workflow
 <a name="NamingWorkflow"></a>
 Create the name of the Workflow in `lint-code-base.yml` by defining the `name:` key and set it to `lint-code-base`: `name: lint-code-base`
+
 <img width="644" alt="Screen Shot 2022-08-11 at 12 16 40 PM" src="https://user-images.githubusercontent.com/7821732/184221309-33eff08c-5673-4398-8463-fe03805228fe.png">
 
 

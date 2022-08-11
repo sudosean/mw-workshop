@@ -170,9 +170,11 @@ Click into the workflow at the top
 ## Step 10: Add Badge to repo
 <a name="badge"></a>
 Click Actions at the top, then pick the workflow you want to add a badge for. Click on the three dots to the right of the search bar at the top and click "create status badge"
+
 <img width="983" alt="Screen Shot 2022-08-10 at 2 16 00 PM" src="https://user-images.githubusercontent.com/7821732/184021684-90188c7c-4b71-442e-a937-61acba2b0279.png">
 
 You will see a modal similar to this:
+
 <img width="648" alt="Screen Shot 2022-08-11 at 12 05 40 PM" src="https://user-images.githubusercontent.com/7821732/184219528-05d0f0b2-4e7c-4c66-a548-c9dec92823dc.png">
 
 Choose the branch you want to display the badge for (usually main or master) and leave Event set to Default.

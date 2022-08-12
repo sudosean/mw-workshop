@@ -105,7 +105,7 @@ Create a Job using the `Jobs` key in `lint-code-base.yml` following the `on` eve
 <a name="Checking"></a>
 In this next part, we will define the `Steps` that belong to the `Job`. Usually the first step is to checkout the code from the repo. A step is an individual task within a Job; this may be a Public Action, a Custom Action, or a Run Step
 
-`Steps` is the next key down from `build` and is a list usually with the following keys (among others): `name`, `uses`, `with`
+`Steps` is the next key down from `runs-on` and is a list usually with the following keys (among others): `name`, `uses`, `with`
 
 In `lint-code-base.yml` under `Jobs -> Steps` add the following to checkout the codebase:
 

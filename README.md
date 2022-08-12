@@ -1,7 +1,7 @@
 
 # GitHub Actions Workshop
 
-In this workshop, we will utilize a tool called [super-linter](https://github.com/GitHub/super-linter), which is a tool provided by GitHub that is a combination of various linters to help validate our source code. We will use the [Closet Service](https://github.com/MensWearhouse/closet-service) repo to create our action and watch it run on our forked repository.
+In this workshop, we will utilize a tool called [super-linter](https://github.com/GitHub/super-linter), which is a tool provided by GitHub that is a combination of various linters to help validate our source code. We will use the Closet Service repo to create our action and watch it run on our forked repository.
 
 ### Goals
 
@@ -13,7 +13,7 @@ In this workshop, we will utilize a tool called [super-linter](https://github.co
 
 ## Prerequisites
 
- - Fork [Closet Service](https://github.com/MensWearhouse/closet-service) 
+ - Fork Closet Service
 
 ## Introduction
 GitHub Actions give developers the ability to automate their workflows across issues, pull requests, and more—plus native CI/CD functionality.

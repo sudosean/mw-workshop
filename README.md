@@ -1,22 +1,22 @@
 
-# Github Actions Workshop
+# GitHub Actions Workshop
 
-In this workshop we will utilize a tool called [super-linter](https://github.com/github/super-linter), a tool provided by github that is a combination of various linters to help validate our source code. We will use the [Closet Service](https://github.com/MensWearhouse/closet-service) repo to create our action and watch it run on our forked repository.
+In this workshop, we will utilize a tool called [super-linter](https://github.com/GitHub/super-linter), which is a tool provided by GitHub that is a combination of various linters to help validate our source code. We will use the [Closet Service](https://github.com/MensWearhouse/closet-service) repo to create our action and watch it run on our forked repository.
 
 ### Goals
 
- - High level understanding of Github Actions
+ - High level understanding of GitHub Actions
  - Hands on implementation of an action
  - Knowledge of creating workflows and some best practices
  - Linting action implemented for closet service to help streamline code reviews
 
 
-## Prerequisties
+## Prerequisites
 
  - Fork [Closet Service](https://github.com/MensWearhouse/closet-service) 
 
 ## Introduction
-GitHub Actions gives developers the ability to automate their workflows across issues, pull requests, and more—plus native CI/CD functionality.
+GitHub Actions give developers the ability to automate their workflows across issues, pull requests, and more—plus native CI/CD functionality.
 
 GitHub Actions is a CI/CD tool for the GitHub flow. You can use it to
 integrate and deploy code changes to a third-party cloud application
@@ -38,9 +38,9 @@ have a built-in CI/CD tool that works right alongside your code.
 6. [Step 6: Running Linter](#RunningLinter)
 7. [Step 7: Adding Env variables](#AddingEnv)
 8. [Step 8: Opening your Pull Request](#OpeningPR)
-9. [Step 9: Watching Jobs in Github UI](#WatchingJobs)
+9. [Step 9: Watching Jobs in GitHub UI](#WatchingJobs)
 10. [Step 10: Add Badge to repo](#badge)
-11. [Recap](#Recap) 
+11. [Recap](#Recap)
 12. [Secuirty Considerations](#Security)
 
 
@@ -74,20 +74,20 @@ Create the name of the Workflow in `lint-code-base.yml` by defining the `name:` 
 
 ## Step 3: Starting Job
 <a name="StartingJob"></a>
-A Job is event based meaning it is triggered `on` some event. A Git event, such as ‘pull request opened', or ‘push’; this may or may not be further defined to one or more specific branches
+A Job is event based meaning it is triggered `on` some Git event, such as ‘pull request opened', or ‘push’; this may or may not be further defined to one or more specific branches
 
-Tell github how to start the Job in `lint-code-base.yml` by defining the `on` block which follows the `name` key
+Tell GitHub how to start the Job in `lint-code-base.yml` by defining the `on` block which follows the `name` key
 
 <img width="575" alt="Screen Shot 2022-08-09 at 2 12 15 PM" src="https://user-images.githubusercontent.com/7821732/183762351-38736cc1-b843-4f11-803a-30d2c309a71f.png">
 
 ### Best Practices
-- There should be only one Action Workflow per Git Event + Branch type, there are no issues with having multiple branch / multiple Git events in a single workflow,
+- There should be only one Action Workflow per Git Event + Branch type, however there are no issues with having multiple branches / multiple Git events in a single workflow
 
 ## Step 4: Load Steps
 <a name="LoadSteps"></a>
-A Job is a collection of sequential Steps to run that should perform a discrete piece of work in the CICD pipeline (example, Lint, Build, Test, Deploy, etc.)
+A Job is a collection of sequential Steps to run that should perform a discrete piece of work in the CICD pipeline (e.g. Lint, Build, Test, Deploy, etc.)
 
-Create a Job using the `Jobs` key in `lint-code-base.yml` following the `on` event defined in step 3: 
+Create a Job using the `Jobs` key in `lint-code-base.yml` following the `on` event defined in step 3:
 
 <img width="292" alt="Screen Shot 2022-08-09 at 2 26 00 PM" src="https://user-images.githubusercontent.com/7821732/183764445-546df892-6d3e-4b0c-8194-6d30db1c2de5.png">
 
@@ -124,14 +124,14 @@ The second "Step" in our `Steps` section is to actually run the linter. Under `S
 
 <img width="468" alt="Screen Shot 2022-08-09 at 2 48 53 PM" src="https://user-images.githubusercontent.com/7821732/183767873-9259f28c-2505-4bfc-8d9d-96251714a7e6.png">
 
-**NOTE**: **There is no need to set the GitHub Secret as it is automatically set by GitHub, it only needs to be passed to the action**. If you pass the Environment variable GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} in your workflow, then the GitHub Super-Linter will mark the status of each individual linter run in the Checks section of a pull request. Without this you will only see the overall status of the full run. 
+**NOTE**: **There is no need to set the GitHub Secret as it is automatically set by GitHub, it only needs to be passed to the action**. If you pass the Environment variable `GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}` in your workflow, then the GitHub Super-Linter will mark the status of each individual linter run in the Checks section of a pull request. Without this you will only see the overall status of the full run. 
 ### Best Practices
 - Same as step 5
 
 ## Step 7: Adding Env variables
 <a name="AddingEnv"></a>
 
-Env vars can be scoped to the Workflow level, Job level and Step level. Because super linter comes with a myraid of programming languages, we want to set java to true at the `step` level. We also want to exclude generated files, files ignored by git and scope down linting to the `src` file. Super linter provides a number of env vars for this step so please check documentation for reference.
+Env vars can be scoped to the Workflow level, Job level and Step level. Because super linter comes with a myriad of programming languages, we want to set java to true at the `step` level. We also want to exclude generated files, files ignored by git and scope down linting to the `src` file. Super linter provides a number of env vars for this step so please check documentation for reference.
 
 Add the following env vars to the `env` block of the step 6:
 
@@ -146,18 +146,18 @@ Note: All the VALIDATE_[LANGUAGE] variables behave in a very specific way:
 ### Best Practices
 - Again, Env vars can be scoped to the Workflow level, Job level and Step level
 - Use environment variables within the narrowest scope possible
-- Be aware that if you create new environment variables and append them to the $GITHUB_ENV variable then they will be available to all subsequent Steps within that same Job
-- For Environment Variables use SNAKE_CASE (All Caps)
+- Be aware that if you create new environment variables and append them to the $GitHub_ENV variable then they will be available to all subsequent Steps within that same Job
+- For Environment Variables use SNAKE_CASE (All Caps) unless a particular Action requires otherwise (environment variables are generally case-sensitive)
 
 ## Step 8: Opening your Pull Request
 <a name="OpeningPR"></a>
-For this github action to run, it will need to go through a pr process. Open a pr and you should see the new "check" running at the bottom of the pr. Then, head to the next step to see the linter run in the worklfow!
+For this GitHub action to run, it will need to go through a pr process. Open a pr and you should see the new "check" running at the bottom of the pr. Then, head to the next step to see the linter run in the workflow!
 
-Note: We configured this job in step 3 to trigger `on` a pr and a merge (of non main branches). 
+Note: We configured this job in step 3 to trigger `on` a pr and a merge (of non main branches).
 
-## Step 9: Watching jobs in Github UI
+## Step 9: Watching jobs in GitHub UI
 <a name="WatchingJobs"></a>
-There are a few ways to fiew the workflow running. Either on the pr, under the "Checks" section or you can click on the actions tab at the top of the repo and find your workflow running there
+There are a few ways to view the workflow running. Either on the pr, under the "Checks" section or you can click on the actions tab at the top of the repo and find your workflow running there
 
 Click the "Actions" tab at the top of the repo
 <img width="848" alt="Screen Shot 2022-08-10 at 2 09 21 PM" src="https://user-images.githubusercontent.com/7821732/184020581-4024fe06-1652-402a-80fa-66cd33a43cc5.png">
@@ -186,9 +186,9 @@ For more info on badges in repos please see [this documentation](https://docs.gi
 ## Recap
 <a name="Recap"></a>
 
-In this workshop we created a github action using super linter. We created the Worflow, defined the Job and Steps to do durning that Job. You can see that in a few lines of yaml you can begin to build an entire CI process for your project. You can even do deployments right from GitHub Actions and there is an entire [Marketplace](https://github.com/marketplace?type=actions) with predefined actions all ready to use for your project! 
+In this workshop we created a GitHub action using super linter. We created the Workflow, defined the Job and Steps to do durning that Job. You can see that in a few lines of yaml you can begin to build an entire CI process for your project. You can even do deployments right from GitHub Actions and there is an entire [Marketplace](https://github.com/marketplace?type=actions) with predefined actions all ready to use for your project! 
 
-Keep an eye on the best practices documentation found [here](https://wiki.tailoredbrands.com/pages/viewpage.action?spaceKey=WW&title=Github+Actions+Best+Practices)
+Keep an eye on the best practices documentation found [here](https://wiki.tailoredbrands.com/pages/viewpage.action?spaceKey=WW&title=GitHub+Actions+Best+Practices)
 
 ## Security Considerations
 <a name="Security"></a>
@@ -203,12 +203,12 @@ These are virtual machines that are built, hosted and maintained by your own com
 For example, you may have a 'build & deliver' Job that updates a Kubernetes Cluster inside your own Data Centre.  
 Using a GitHub-hosted runner would require the networking team to open up the Kubernetes Cluster to the public Internet, something that would violate the company security policies.  
 So instead you would build a VM with the requisite software and tools, host this VM from within the Data Centre, and then using the Agent software (the software used by the runners to talk back to the GitHub Services), join the VM to the relevant repository that you would like to use that runner on.  
-If desired, you can instead register the VM at the Organisation level with GitHub Enterprise.
+If desired, you can instead register the VM at the Organization level with GitHub Enterprise.
 
 Links of interest:
 
 - [Runner Images](https://github.com/actions/runner-images): this repository has the scripts that are used by GitHub to create their own runners, and with minimal effort you can use these scripts yourself to create your 'self-hosted' runner VMs
-- [GitHub-hosted Runners information](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners)
+- [GitHub-hosted Runners information](https://docs.github.com/en/actions/using-GitHub-hosted-runners/about-GitHub-hosted-runners)
 
 #### Secrets inside the Workflow
 
